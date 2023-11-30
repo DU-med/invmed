@@ -1,6 +1,11 @@
 # NGS analysis tutorial
 
-## Reference web sites
+## Contents
+
+### basic_rnaseq
+Basic tutorial with RNA-seq workflow
+
+## Informative references
 
 ### NGS terminology guide
 https://www.illumina.com/science/technology/next-generation-sequencing/beginners/glossary.html#
