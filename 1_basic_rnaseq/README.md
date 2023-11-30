@@ -69,7 +69,7 @@ fastqc -t 4 -o qc ../../fastq/SRR11309003_1.fastq.gz ../../fastq/SRR11309003_2.f
 ```
 
 ### Adaptor trimming
-[trim_galore](https://github.com/FelixKrueger/TrimGalore)  
+[trim-galore](https://github.com/FelixKrueger/TrimGalore/blob/master/Docs/Trim_Galore_User_Guide.md)
 ```
 mkdir trimmed_fastq
 trim_galore -j 20 --paired ../../fastq/SRR11309003_1.fastq.gz ../../fastq/SRR11309003_2.fastq.gz -o trimmed_fastq
