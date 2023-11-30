@@ -1,11 +1,11 @@
 # NGS analysis tutorial
 
-## Contents
+## 📁 Contents
 
 ### basic_rnaseq
-Basic tutorial with RNA-seq workflow
+Basic tutorial of RNA-seq workflow with example data
 
-## Informative references
+## 👩🏻‍💻 Informative references
 
 ### NGS terminology guide
 https://www.illumina.com/science/technology/next-generation-sequencing/beginners/glossary.html#
