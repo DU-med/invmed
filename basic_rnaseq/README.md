@@ -16,7 +16,7 @@ mamba install -c bioconda bioconductor-deseq2 -y
 ```
 
 ## Reference file preparation
-Download all the necessary reference files from NCBI database  
+Download all the necessary reference files from NCBI database (takes approximately 20min)
 https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/
 ```
 curl -OJX GET "https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCF_000001405.40/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT&filename=GCF_000001405.40.zip" -H "Accept: application/zip"
@@ -29,7 +29,6 @@ Indexing genome file for HISAT2
 mkdir index
 hisat2-build -p 20 ref/ncbi_dataset/data/GCF_000001405.40/GCF_000001405.40_GRCh38.p14_genomic.fna index/human_genome
 ```
-
 
 ## Output directories  
 Creation of directories for output data
@@ -49,7 +48,6 @@ parallel-fastq-dump --sra-id SRR11309004 --threads 4 --outdir fastq --split-file
 parallel-fastq-dump --sra-id SRR11309005 --threads 4 --outdir fastq --split-files --gzip
 parallel-fastq-dump --sra-id SRR11309006 --threads 4 --outdir fastq --split-files --gzip
 ```
-
 
 ## RNA-seq workflow (SRR11309003 as an example)
 <img src="fig/RNAseqWorkflow.png" width='300'>
@@ -79,16 +77,18 @@ trim_galore -j 20 --paired ../../fastq/SRR11309003_1.fastq.gz ../../fastq/SRR113
 hisat2 -p 20 -x ../index/human_genome -1 trimmed_fastq/SRR11309003_1_val_1.fq.gz -2 trimmed_fastq/SRR11309003_2_val_2.fq.gz -S SRR11309003.sam 
 ```
 
-### sam and bam file processing
-samtools
+### SAM and BAM file processing
+[samtools](https://www.htslib.org/doc/samtools.html)
 ```
-samtools sort -@ 4 -O bam -o SRR11309003.sort.bam  SRR11309003.sam
+samtools sort SRR11309003.sam -@ 4 -O bam -o SRR11309003.sort.bam 
 samtools index SRR11309003.sort.bam
 rm SRR11309003.sam
 ```
-### Read count
-StringTie  
 
+### Read count
+[StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
+```
+```
 
 ### DEG(differentially expressed genes)
 DESeq2(R)
