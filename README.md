@@ -1,1 +1,1 @@
-# invmed
+# NGS analysis tutorial
