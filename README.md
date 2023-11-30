@@ -15,4 +15,4 @@ https://www.illumina.com/science/technology/next-generation-sequencing/beginners
 https://bioinformatics-core-shared-training.github.io/cruk-autumn-school-2017/Introduction/SS_DB/Materials/Lectures/Lecture1_fileFormats_DB.pdf
 
 ### Tools used in NGS analysis
-[RNA-seq](tools.md)   
+[RNA-seq](/tools.md)   
