@@ -33,4 +33,28 @@ parallel-fastq-dump --sra-id SRR11309006 --threads 4 --outdir fastq/ --split-fil
 ```
 
 ## RNA-seq workflow
-<img src="fig/RNAseqWorkflow.png" width='500'>
+<img src="fig/RNAseqWorkflow.png" width='300'>
+**Quality chceck**  
+fastqc  
+```
+```
+
+**Adaptor trimming**  
+trim_galore  
+```
+```
+
+**Alignment**  
+HISAT2  
+```
+```
+
+**Read count**  
+StringTie  
+```
+```
+
+**DEG(differentially expressed genes)**  
+DESeq2(R)
+```
+```
