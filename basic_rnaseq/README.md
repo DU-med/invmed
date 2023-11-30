@@ -26,6 +26,8 @@ unzip GCF_000001405.40.zip "ncbi_dataset/data/GCF_000001405.40/*" -d ref
 ## Genome index file
 Indexing genome file for HISAT2
 ```
+mkdir index
+hisat2-build -p 20 ref/ncbi_dataset/data/GCF_000001405.40/GCF_000001405.40_GRCh38.p14_genomic.fna index/human_genome
 ```
 
 
@@ -52,7 +54,7 @@ parallel-fastq-dump --sra-id SRR11309006 --threads 4 --outdir fastq --split-file
 ## RNA-seq workflow (SRR11309003 as an example)
 <img src="fig/RNAseqWorkflow.png" width='300'>
 
-### Move to working derectory
+### Move to the working derectory
 ```
 cd analysis/SRR11309003
 ```
@@ -61,26 +63,32 @@ cd analysis/SRR11309003
 [fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)  
 ```
 mkdir qc
-fastqc -t 20 -o qc ../fastq/SRR11309003_1.fastq.gz ../fastq/SRR11309003_2.fastq.gz
+fastqc -t 20 -o qc ../../fastq/SRR11309003_1.fastq.gz ../../fastq/SRR11309003_2.fastq.gz
 ```
 
 ### Adaptor trimming
 [trim_galore](https://github.com/FelixKrueger/TrimGalore)  
 ```
 mkdir trimmed_fastq
-trim_galore -j 20 --paired ../fastq/SRR11309003_1.fastq.gz ../fastq/SRR11309003_2.fastq.gz -o trimmed_fastq
+trim_galore -j 20 --paired ../../fastq/SRR11309003_1.fastq.gz ../../fastq/SRR11309003_2.fastq.gz -o trimmed_fastq
 ```
 
 ### Alignment
 [HISAT2](https://daehwankimlab.github.io/hisat2/manual/)  
 ```
-hisat2-build -p 20 ../ref/ncbi_dataset/data/GCF_000001405.40/GCF_000001405.40_GRCh38.p14_genomic.fna human_genome
+hisat2 -p 20 -x ../index/human_genome -1 trimmed_fastq/SRR11309003_1_val_1.fq.gz -2 trimmed_fastq/SRR11309003_2_val_2.fq.gz -S SRR11309003.sam 
 ```
 
+### sam and bam file processing
+samtools
+```
+samtools sort -@ 4 -O bam -o SRR11309003.sort.bam  SRR11309003.sam
+samtools index SRR11309003.sort.bam
+rm SRR11309003.sam
+```
 ### Read count
 StringTie  
-```
-```
+
 
 ### DEG(differentially expressed genes)
 DESeq2(R)
