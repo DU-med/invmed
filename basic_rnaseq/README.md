@@ -40,6 +40,8 @@ parallel-fastq-dump --sra-id SRR11309004 --threads 4 --outdir fastq --split-file
 parallel-fastq-dump --sra-id SRR11309005 --threads 4 --outdir fastq --split-files --gzip
 parallel-fastq-dump --sra-id SRR11309006 --threads 4 --outdir fastq --split-files --gzip
 ```
+HEK 293 cell: SRR11309003 SRR11309004  
+HBEC 5i cell: SRR11309005 SRR11309006  
 
 ## Output directories  
 Creation of directories for output data
