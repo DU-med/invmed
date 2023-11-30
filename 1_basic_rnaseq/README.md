@@ -22,6 +22,7 @@ https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/
 ```
 curl -OJX GET "https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCF_000001405.40/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT&filename=GCF_000001405.40.zip" -H "Accept: application/zip"
 unzip GCF_000001405.40.zip "ncbi_dataset/data/GCF_000001405.40/*" -d ref
+rm GCF_000001405.40.zip
 ```
 
 ## Genome index file
@@ -64,7 +65,7 @@ cd analysis/SRR11309003
 [fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)  
 ```
 mkdir qc
-fastqc -t 20 -o qc ../../fastq/SRR11309003_1.fastq.gz ../../fastq/SRR11309003_2.fastq.gz
+fastqc -t 4 -o qc ../../fastq/SRR11309003_1.fastq.gz ../../fastq/SRR11309003_2.fastq.gz
 ```
 
 ### Adaptor trimming
@@ -77,7 +78,7 @@ trim_galore -j 20 --paired ../../fastq/SRR11309003_1.fastq.gz ../../fastq/SRR113
 ### Alignment
 [HISAT2](https://daehwankimlab.github.io/hisat2/manual/)  
 ```
-hisat2 -p 20 -x ../index/human_genome -1 trimmed_fastq/SRR11309003_1_val_1.fq.gz -2 trimmed_fastq/SRR11309003_2_val_2.fq.gz -S SRR11309003.sam 
+hisat2 -p 16 -x ../../index/human_genome -1 trimmed_fastq/SRR11309003_1_val_1.fq.gz -2 trimmed_fastq/SRR11309003_2_val_2.fq.gz -S SRR11309003.sam 
 ```
 
 ### SAM and BAM file processing
