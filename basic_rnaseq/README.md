@@ -91,7 +91,13 @@ rm SRR11309003.sam
 ### Read count
 [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
 ```
-stringtie -p 10 -G ../../ref/ncbi_dataset/data/GCF_000001405.40/genomic.gff -o SRR11309003.count -A  SRR11309003.table SRR11309003.sort.bam
+stringtie -p 10 -G ../../ref/ncbi_dataset/data/GCF_000001405.40/genomic.gff -o SRR11309003.gtf -A  SRR11309003.table SRR11309003.sort.bam
+```
+
+### Merge stringtie output of each sample
+[prepDE.py3](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual#deseq)
+```
+wget -c https://ccb.jhu.edu/software/stringtie/dl/prepDE.py3
 ```
 
 ### DEG(differentially expressed genes)
