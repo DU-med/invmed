@@ -33,3 +33,4 @@ parallel-fastq-dump --sra-id SRR11309006 --threads 4 --outdir fastq/ --split-fil
 ```
 
 ## RNA-seq workflow
+<img src="fig/RNAseqWorkflow.png" width='500'>
