@@ -1,12 +1,13 @@
 # Tools used in RNA-seq analysis
 
-## parallel-fastq-dump
+## parallel-fastq-dump 
 efficiently downloads DNA sequencing data from a high-throughput sequencer in parallel, converting it into FASTQ format commonly used for downstream analysis, speeding up data retrieval for large-scale genomics projects.
 
 ##  trim-galore
 automates quality control for both DNA and RNA sequence data by trimming low-quality bases and adapter sequences. This enhances data quality, benefiting subsequent analyses like genome assembly or variant calling.
 
 ## fastqc 
+https://github.com/utsumidaisuke/invmed/tree/main/1_basic_rnaseq#:~:text=Quality%20chceck-,fastqc,-mkdir%20qc%0Afastqc  
 assesses the quality of sequencing data from DNA or RNA experiments. It generates reports on various metrics like read quality, GC content, and sequence duplication, helping researchers identify issues and make informed decisions during data processing and analysis.
 
 ## hisat2 
