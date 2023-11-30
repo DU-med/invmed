@@ -2,9 +2,10 @@
 
 ## 📁 Contents
 
-### basic_rnaseq
+### 1. basic_rnaseq
 Basic tutorial of RNA-seq workflow with example data
-
+<br>
+<br>
 ## 👩🏻‍💻 Informative references
 
 ### NGS terminology guide
