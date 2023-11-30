@@ -23,6 +23,11 @@ curl -OJX GET "https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GC
 unzip GCF_000001405.40.zip "ncbi_dataset/data/GCF_000001405.40/*" -d ref
 ```
 
+## Genome index file
+Indexing genome file for HISAT2
+```
+```
+
 
 ## Output directories  
 Creation of directories for output data
@@ -47,34 +52,37 @@ parallel-fastq-dump --sra-id SRR11309006 --threads 4 --outdir fastq --split-file
 ## RNA-seq workflow (SRR11309003 as an example)
 <img src="fig/RNAseqWorkflow.png" width='300'>
 
-**Move to working derectory**  
+### Move to working derectory
 ```
 cd analysis/SRR11309003
 ```
 
-**Quality chceck**  
+### Quality chceck
 [fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)  
 ```
 mkdir qc
-fastqc -t 10 -o qc  SRR11309003_1.fastq.gz SRR11309003_2.fastq.gz
+fastqc -t 20 -o qc ../fastq/SRR11309003_1.fastq.gz ../fastq/SRR11309003_2.fastq.gz
 ```
 
-**Adaptor trimming**  
-trim_galore  
+### Adaptor trimming
+[trim_galore](https://github.com/FelixKrueger/TrimGalore)  
 ```
-```
-
-**Alignment**  
-HISAT2  
-```
+mkdir trimmed_fastq
+trim_galore -j 20 --paired ../fastq/SRR11309003_1.fastq.gz ../fastq/SRR11309003_2.fastq.gz -o trimmed_fastq
 ```
 
-**Read count**  
+### Alignment
+[HISAT2](https://daehwankimlab.github.io/hisat2/manual/)  
+```
+hisat2-build -p 20 ../ref/ncbi_dataset/data/GCF_000001405.40/GCF_000001405.40_GRCh38.p14_genomic.fna human_genome
+```
+
+### Read count
 StringTie  
 ```
 ```
 
-**DEG(differentially expressed genes)**  
+### DEG(differentially expressed genes)
 DESeq2(R)
 ```
 ```
