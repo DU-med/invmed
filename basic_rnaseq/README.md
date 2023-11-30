@@ -11,6 +11,7 @@ mamba install -c bioconda parallel-fastq-dump -y
 mamba install -c bioconda trim-galore -y
 mamba install -c bioconda fastqc -y
 mamba install -c bioconda hisat2 -y
+mamba install -c bioconda samtools -y
 mamba install -c bioconda stringtie -y
 mamba install -c bioconda bioconductor-deseq2 -y
 ```
@@ -30,15 +31,6 @@ mkdir index
 hisat2-build -p 20 ref/ncbi_dataset/data/GCF_000001405.40/GCF_000001405.40_GRCh38.p14_genomic.fna index/human_genome
 ```
 
-## Output directories  
-Creation of directories for output data
-```
-for i in SRR11309003 SRR11309004 SRR11309005 SRR11309006
-do
-mkdir -p analysis/$i
-done
-```
-
 ## Example fastq files
 Download public RNA-seq data  
 https://trace.ncbi.nlm.nih.gov/Traces/?view=study&acc=SRP252863  
@@ -47,6 +39,15 @@ parallel-fastq-dump --sra-id SRR11309003 --threads 4 --outdir fastq --split-file
 parallel-fastq-dump --sra-id SRR11309004 --threads 4 --outdir fastq --split-files --gzip
 parallel-fastq-dump --sra-id SRR11309005 --threads 4 --outdir fastq --split-files --gzip
 parallel-fastq-dump --sra-id SRR11309006 --threads 4 --outdir fastq --split-files --gzip
+```
+
+## Output directories  
+Creation of directories for output data
+```
+for i in SRR11309003 SRR11309004 SRR11309005 SRR11309006
+do
+mkdir -p analysis/$i
+done
 ```
 
 ## RNA-seq workflow (SRR11309003 as an example)
@@ -80,7 +81,7 @@ hisat2 -p 20 -x ../index/human_genome -1 trimmed_fastq/SRR11309003_1_val_1.fq.gz
 ### SAM and BAM file processing
 [samtools](https://www.htslib.org/doc/samtools.html)
 ```
-samtools sort SRR11309003.sam -@ 4 -O bam -o SRR11309003.sort.bam 
+samtools sort SRR11309003.sam -@ 10 -O bam -o SRR11309003.sort.bam 
 samtools index SRR11309003.sort.bam
 rm SRR11309003.sam
 ```
@@ -88,6 +89,7 @@ rm SRR11309003.sam
 ### Read count
 [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
 ```
+stringtie -p 10 -G ../../ref/ncbi_dataset/data/GCF_000001405.40/genomic.gff -o SRR11309003.count -A  SRR11309003.table SRR11309003.sort.bam
 ```
 
 ### DEG(differentially expressed genes)
