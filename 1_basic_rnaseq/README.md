@@ -99,7 +99,7 @@ stringtie -p 10 -e -G ../../ref/ncbi_dataset/data/GCF_000001405.40/genomic.gff -
 ## 2️⃣ Step 2: Integration and analysis of the results in Step 1
 
 ### Move to analysis directory
-Go to analysis/ directory where subdirectory of each sample is located
+Go to analysis/ directory where subdirectory of each sample is located  
 <img src="fig/tree.png" width='300'>
 
 ### Merge stringtie output of each sample
