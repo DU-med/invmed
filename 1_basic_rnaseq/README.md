@@ -53,10 +53,10 @@ mkdir -p analysis/$i
 done
 ```
 
-## RNA-seq workflow (SRR11309003 as an example)
+## RNA-seq workflow  
 <img src="fig/RNAseqWorkflow.png" width='300'>
 
-## 1️⃣ Step 1 : Processing fastq in each sample directory
+## 1️⃣ Step 1 : Processing fastq in each sample directory  (SRR11309003 as an example)
 ### Move to the working derectory
 ```
 cd analysis/SRR11309003
@@ -102,11 +102,12 @@ stringtie -p 10 -e -G ../../ref/ncbi_dataset/data/GCF_000001405.40/genomic.gff -
 Go to analysis/ directory where subdirectory of each sample is located  
 <img src="fig/Tree.png" width='300'>
 
-### Merge stringtie output of each sample
+### Create read count table (gene_count_matrix.csv) for DESeq2
 [prepDE.py3](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual#deseq)
 ```
 wget -c https://ccb.jhu.edu/software/stringtie/dl/prepDE.py3
-python prepDE.py
+chmod +x prepDE.py3
+python ./prepDE.py
 ```
 
 ### DEG(differentially expressed genes)
