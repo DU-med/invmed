@@ -98,8 +98,8 @@ stringtie -p 10 -e -G ../../ref/ncbi_dataset/data/GCF_000001405.40/genomic.gff -
 
 ## 2️⃣ Step 2: Integration and analysis of the results in Step 1
 
-### Move to analysis directory
-Go to analysis/ directory where subdirectory of each sample is located  
+### Move to analysis/ directory
+Go to analysis/ directory where subdirectories of each sample are located  
 <img src="fig/Tree.png" width='300'>
 
 ### Create read count table (gene_count_matrix.csv) for DESeq2
