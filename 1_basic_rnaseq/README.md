@@ -100,7 +100,7 @@ stringtie -p 10 -e -G ../../ref/ncbi_dataset/data/GCF_000001405.40/genomic.gff -
 
 ### Move to analysis directory
 Go to analysis/ directory where subdirectory of each sample is located  
-<img src="fig/tree.png" width='300'>
+<img src="fig/Tree.png" width='300'>
 
 ### Merge stringtie output of each sample
 [prepDE.py3](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual#deseq)
