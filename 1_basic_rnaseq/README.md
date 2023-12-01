@@ -56,6 +56,7 @@ done
 ## RNA-seq workflow (SRR11309003 as an example)
 <img src="fig/RNAseqWorkflow.png" width='300'>
 
+1️⃣ Step 1 : Processing fastq in each sample directory
 ### Move to the working derectory
 ```
 cd analysis/SRR11309003
@@ -92,13 +93,20 @@ rm SRR11309003.sam
 ### Read count
 [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
 ```
-stringtie -p 10 -G ../../ref/ncbi_dataset/data/GCF_000001405.40/genomic.gff -o SRR11309003.gtf -A  SRR11309003.table SRR11309003.sort.bam
+stringtie -p 10 -e -G ../../ref/ncbi_dataset/data/GCF_000001405.40/genomic.gff -o SRR11309003.gtf -A  SRR11309003.table SRR11309003.sort.bam
 ```
+
+2️⃣ Step 2: Integration and analysis of the results in Step 1
+
+### Move to analysis directory
+Go to analysis/ directory where subdirectory of each sample is located
+![tree](/fig/tree.png)
 
 ### Merge stringtie output of each sample
 [prepDE.py3](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual#deseq)
 ```
 wget -c https://ccb.jhu.edu/software/stringtie/dl/prepDE.py3
+python prepDE.py
 ```
 
 ### DEG(differentially expressed genes)

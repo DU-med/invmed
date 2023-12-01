@@ -1,3 +1,8 @@
+# Example command
+# excute this script in each sample directory
+# bash rnaseq.sh <sample id>
+# bash rnaseq.sh SRR1554536
+
 # directory setting
 mkdir qc trimmed_fastq
 
