@@ -2,7 +2,7 @@
 
 ## 📁 Contents
 
-### [1. basic_rnaseq](/1_basic_rnaseq)
+### [1. basic_rnaseq](/01_basic_rnaseq)
 Basic tutorial of RNA-seq workflow with example data
 <br>
 <br>
