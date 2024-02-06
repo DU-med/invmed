@@ -14,7 +14,7 @@ mamba install -c bioconda hisat2 -y
 mamba install -c bioconda samtools -y
 mamba install -c bioconda stringtie -y
 mamba install -c bioconda bioconductor-deseq2 -y
-conda install -c r r-irkernel -y
+mamba install -c r r-irkernel -y
 ```
 
 ## Reference file preparation
