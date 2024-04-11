@@ -117,6 +117,45 @@ python ./prepDE.py
 ### DEG(differentially expressed genes)
 DESeq2(R)
 ```
+# Variable settings
+in_f <- "gene_count_matrix.csv"        # input readcount data
+out_f1 <- "result.txt"        # output file for the result
+out_f2 <- "result.png"        # output image file for M-A plot
+param_G1 <- 2        # sample number of group 1
+param_G2 <- 2        # sample number of group2 
+param_FDR <- 0.05        # false discovery rate (FDR) threshold
+param_fig <- c(400, 380)        # figure size of M-A plot
+
+# Loading necessary R package
+library(DESeq2)        # loading DESeq2 package
+
+# Loading  readc ount data
+data <- read.table(in_f, header=TRUE, row.names=1, sep=",", quote="")
+
+# Preprocessing
+data.cl <- c(rep(1, param_G1), rep(2, param_G2))
+colData <- data.frame(condition=as.factor(data.cl))
+d <- DESeqDataSetFromMatrix(countData=data, colData=colData, design=~condition)
+
+# Defferentially expressed genes analysis (DESeq2)
+d <- DESeq(d)                          # DESeq2 excution
+tmp <- results(d)                      # assign the result 
+p.value <- tmp$pvalue                  # assign the p-value
+p.value[is.na(p.value)] <- 1           # replace NA by 1
+q.value <- tmp$padj                    # assgin the adjusted p-value in q.value
+q.value[is.na(q.value)] <- 1           # replace NA by 1
+ranking <- rank(p.value)               # assign the ranking based on p-value
+log2.FC <- tmp$log2FoldChange        # assign the log2FC
+sum(q.value < param_FDR)               # the number of genes (q.value < param_FDR)
+sum(p.adjust(p.value, method="BH") < param_FDR)        # the number of genes (q.value < param_FDR, BH-method)
+
+# saving the result into the output file
+tmp <- cbind(rownames(data), data, p.value, q.value, ranking, log2.FC)
+write.table(tmp, out_f1, sep="\t", append=F, quote=F, row.names=F) 
+
+# saving MA-plot
+png(out_f2, pointsize=13, width=param_fig[1], height=param_fig[2])
+plotMA(d)
 ```
 
 ## Overview of the result
