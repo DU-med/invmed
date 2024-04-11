@@ -22,3 +22,6 @@ rm $1\.sam
 
 # read counting
 stringtie -p 10 -G ../../ref/ncbi_dataset/data/GCF_000001405.40/genomic.gff -o $1\.gtf -A  $1\.table $1\.sort.bam
+
+# create read count table
+python ./prepDE.py
