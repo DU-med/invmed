@@ -118,7 +118,7 @@ python ./prepDE.py
 
 ### DEG(differentially expressed genes) analysis
 [DESeq2(R)](https://github.com/thelovelab/DESeq2)  
-ipynb: analysis/DESeq2.ipynb
+**ipynb**: analysis/DESeq2.ipynb
 ```
 # Variable settings
 in_f <- "gene_count_matrix.csv"        # input readcount data
@@ -162,7 +162,7 @@ plotMA(d)
 ```
 
 ## Overview of the result
-ipynb: analysis/result_overview.ipynb
+**ipynb**: analysis/result_overview.ipynb
 ```
 # importing pandas library
 import pandas as pd
