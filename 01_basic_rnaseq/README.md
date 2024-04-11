@@ -119,8 +119,8 @@ python ./prepDE.py
 ```
 # Variable settings
 in_f <- "gene_count_matrix.csv"        # input readcount data
-out_f1 <- "result.txt"        # output file for the result
-out_f2 <- "result.png"        # output image file for M-A plot
+out_f1 <- "results/result.txt"        # output file for the result
+out_f2 <- "results/result.png"        # output image file for M-A plot
 param_G1 <- 2        # sample number of group 1
 param_G2 <- 2        # sample number of group2 
 param_FDR <- 0.05        # false discovery rate (FDR) threshold
