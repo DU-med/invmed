@@ -15,6 +15,8 @@ mamba install -c bioconda hisat2 -y
 mamba install -c bioconda samtools -y
 mamba install -c bioconda stringtie -y
 mamba install -c bioconda bioconductor-deseq2 -y
+mamba install -c anaconda jupyter -y
+mamba install -c conda-forge nbclassic -y
 mamba install -c r r-irkernel -y
 ```
 
