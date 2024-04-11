@@ -16,6 +16,8 @@ mamba install -c bioconda samtools -y
 mamba install -c bioconda stringtie -y
 mamba install -c bioconda bioconductor-deseq2 -y
 mamba install -c anaconda jupyter -y
+mamba install -c anaconda pandas -y
+mamba install -c conda-forge matplotlib -y
 mamba install -c conda-forge nbclassic -y
 mamba install -c r r-irkernel -y
 ```
@@ -115,7 +117,8 @@ python ./prepDE.py
 ```
 
 ### DEG(differentially expressed genes) analysis
-[DESeq2(R)](https://github.com/thelovelab/DESeq2)
+[DESeq2(R)](https://github.com/thelovelab/DESeq2)  
+ipynb: DESeq2.ipynb
 ```
 # Variable settings
 in_f <- "gene_count_matrix.csv"        # input readcount data
@@ -159,3 +162,17 @@ plotMA(d)
 ```
 
 ## Overview of the result
+ipynb: result_overview.ipynb
+```
+# importing pandas library
+import pandas as pd
+
+# Loading the DESeq2 result file 
+df = pd.read_csv('results/result.txt', sep='\t')
+
+# Sorting by "ranking"
+df = df.sort_values('ranking')
+
+# Showing the dataframe
+display(df)
+```
