@@ -162,7 +162,7 @@ plotMA(d)
 ```
 
 ## Overview of the result
-ipynb: analysis/results/result_overview.ipynb
+ipynb: analysis/result_overview.ipynb
 ```
 # importing pandas library
 import pandas as pd
