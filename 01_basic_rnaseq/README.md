@@ -3,6 +3,7 @@
 ## Environment setup
 ```
 mamba create -n rnaseq python=3.10
+mamba activate rnaseq
 ```
 
 ## Installtion of necessary tools
