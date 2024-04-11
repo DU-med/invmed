@@ -114,8 +114,8 @@ chmod +x prepDE.py3
 python ./prepDE.py
 ```
 
-### DEG(differentially expressed genes)
-DESeq2(R)
+### DEG(differentially expressed genes) analysis
+[DESeq2(R)](https://github.com/thelovelab/DESeq2)
 ```
 # Variable settings
 in_f <- "gene_count_matrix.csv"        # input readcount data
