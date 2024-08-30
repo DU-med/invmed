@@ -16,5 +16,3 @@ https://bioinformatics-core-shared-training.github.io/cruk-autumn-school-2017/In
 
 ### Tools used in NGS analysis
 [RNA-seq analysis tools](/Tools.md)  
-
-test 

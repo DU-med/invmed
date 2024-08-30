@@ -8,18 +8,19 @@ mamba activate rnaseq
 
 ## Installtion of necessary tools
 ```
-mamba install -c bioconda parallel-fastq-dump -y
-mamba install -c bioconda trim-galore -y
-mamba install -c bioconda fastqc -y
-mamba install -c bioconda hisat2 -y
-mamba install -c bioconda samtools -y
-mamba install -c bioconda stringtie -y
-mamba install -c bioconda bioconductor-deseq2 -y
-mamba install -c anaconda jupyter -y
-mamba install -c anaconda pandas -y
-mamba install -c conda-forge matplotlib -y
-mamba install -c conda-forge nbclassic -y
-mamba install -c r r-irkernel -y
+mamba install bioconda::parallel-fastq-dump -y
+mamba install bioconda::trim-galore -y
+mamba install bioconda::fastqc -y
+mamba install bioconda::hisat2 -y
+mamba install bioconda::samtools -y
+mamba install bioconda::stringtie -y
+mamba install bioconda::bioconductor-deseq2 -y
+mamba install bioconda::tpmcalculator -y
+mamba install anaconda::jupyter -y
+mamba install anaconda::pandas -y
+mamba install conda-forge::matplotlib -y
+mamba install conda-forge::nbclassic -y
+mamba install conda-forge::r-irkernel -y
 ```
 
 ## Reference file preparation
@@ -100,6 +101,12 @@ rm SRR11309003.sam
 [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
 ```
 stringtie -p 10 -e -G ../../ref/ncbi_dataset/data/GCF_000001405.40/genomic.gff -o SRR11309003.gtf -A  SRR11309003.table SRR11309003.sort.bam
+```
+
+### TPMCalculator
+[TPMCalculator](https://github.com/ncbi/TPMCalculator)
+```
+TPMCalculator -g xxx.gtf -b SRR11309003.sort.bam > output
 ```
 
 ## 2️⃣ Step 2: Integration and analysis of the results in Step 1
