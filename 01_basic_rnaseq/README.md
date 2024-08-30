@@ -27,14 +27,15 @@ mamba install conda-forge::r-irkernel -y
 Download all the necessary reference files from NCBI database (takes approximately 20min)
 https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/
 ```
-wget -r -np -nH --cut-dirs=7 -R "index.html*" ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/
+wget -r -l1 -np -nH --cut-dirs=7 -R "index.html*" -P ref ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/
+gunzip ref/GCF_000001405.40_GRCh38.p14_genomic.fna.gz ref/GCF_000001405.40_GRCh38.p14_genomic.gtf.gz
 ```
 
 ## Genome index file
 Indexing genome file for HISAT2
 ```
 mkdir index
-hisat2-build -p 20 ref/ncbi_dataset/data/GCF_000001405.40/GCF_000001405.40_GRCh38.p14_genomic.fna index/human_genome
+hisat2-build -p 20 ref/GCF_000001405.40_GRCh38.p14_genomic.fna index/human_genome
 ```
 
 ## Example fastq files
