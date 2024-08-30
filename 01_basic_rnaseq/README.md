@@ -25,11 +25,9 @@ mamba install conda-forge::r-irkernel -y
 
 ## Reference file preparation
 Download all the necessary reference files from NCBI database (takes approximately 20min)
-https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/
+https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/
 ```
-curl -OJX GET "https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCF_000001405.40/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT&filename=GCF_000001405.40.zip" -H "Accept: application/zip"
-unzip GCF_000001405.40.zip "ncbi_dataset/data/GCF_000001405.40/*" -d ref
-rm GCF_000001405.40.zip
+wget -r -np -nH --cut-dirs=7 -R "index.html*" ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/
 ```
 
 ## Genome index file
