@@ -28,7 +28,7 @@ Download all the necessary reference files from NCBI database (takes approximate
 https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/
 ```
 wget -r -l1 -np -nH --cut-dirs=7 -R "index.html*" -P ref ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/
-gunzip ref/GCF_000001405.40_GRCh38.p14_genomic.fna.gz ref/GCF_000001405.40_GRCh38.p14_genomic.gtf.gz
+gunzip ref/GCF_000001405.40_GRCh38.p14_genomic.fna.gz ref/GCF_000001405.40_GRCh38.p14_genomic.gtf.gz ref/GCF_000001405.40_GRCh38.p14_genomic.gff.gz
 ```
 
 ## Genome index file
@@ -99,13 +99,13 @@ rm SRR11309003.sam
 ### Read count
 [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
 ```
-stringtie -p 10 -e -G ../../ref/ncbi_dataset/data/GCF_000001405.40/genomic.gff -o SRR11309003.gtf -A  SRR11309003.table SRR11309003.sort.bam
+stringtie -p 10 -e -G ../../ref/GCF_000001405.40_GRCh38.p14_genomic.gff -o SRR11309003.gtf -A  SRR11309003.table SRR11309003.sort.bam
 ```
 
 ### TPMCalculator
 [TPMCalculator](https://github.com/ncbi/TPMCalculator)
 ```
-TPMCalculator -g xxx.gtf -b SRR11309003.sort.bam > output
+TPMCalculator -g ../../ref/GCF_000001405.40_GRCh38.p14_genomic.gtf -b SRR11309003.sort.bam > output
 ```
 
 ## 2️⃣ Step 2: Integration and analysis of the results in Step 1
