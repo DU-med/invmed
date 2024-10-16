@@ -1,4 +1,4 @@
-# Slamdunk Setup　Guide
+# Slamdunk Setup Guide
 
 ### Reference  Repository
 [GitHub Repository for Slamdunk](https://github.com/DU-med/invmed)
