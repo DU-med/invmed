@@ -35,7 +35,7 @@ slamdunk all -r slamdunk/test/data/ref.fa -b slamdunk/test/data/actb.bed -o slam
 NCBI: GRCm39  
 https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001635.27/  
   
-UCSC: mm39
+UCSC: mm39  
 https://hgdownload.soe.ucsc.edu/goldenPath/mm39/bigZips/  
   
 Ensembl: GRCm39(primary_assembly)  
