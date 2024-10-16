@@ -4,6 +4,11 @@
 
 ### [1. basic_rnaseq](/01_basic_rnaseq)
 Basic tutorial of RNA-seq workflow with example data
+
+### [2. Slamdunk setup](/02_slamdunk_setup)
+Slamdunk analysis setup tutorial
+
+
 <br>
 <br>
 ## 👩🏻‍💻 Informative references
