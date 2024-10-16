@@ -29,3 +29,8 @@ git clone https://github.com/t-neumann/slamdunk.git
 cd slamdunk
 slamdunk all -r slamdunk/test/data/ref.fa -b slamdunk/test/data/actb.bed -o slamdunk/test/data/output -rl 100 -mbq 27 -5 0 slamdunk/test/data/reads.fq
 ```
+
+## 2. Reference files prepartion
+### mouse reference genome download
+NCBI: GRCm39
+https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001635.27/
