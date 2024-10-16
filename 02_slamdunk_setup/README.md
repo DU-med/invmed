@@ -32,5 +32,11 @@ slamdunk all -r slamdunk/test/data/ref.fa -b slamdunk/test/data/actb.bed -o slam
 
 ## 2. Reference files prepartion
 ### mouse reference genome download
-NCBI: GRCm39
-https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001635.27/
+NCBI: GRCm39  
+https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001635.27/  
+  
+UCSC: mm39
+https://hgdownload.soe.ucsc.edu/goldenPath/mm39/bigZips/  
+  
+Ensembl: GRCm39(primary_assembly)  
+https://ftp.ensembl.org/pub/release-112/fasta/mus_musculus/dna/  
