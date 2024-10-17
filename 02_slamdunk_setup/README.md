@@ -1,7 +1,7 @@
 # Slamdunk Setup Guide
 
 ### Reference  Repository
-[GitHub Repository for Slamdunk](https://github.com/DU-med/invmed)
+[GitHub Repository for Slamdunk](https://github.com/t-neumann/slamdunk)
 
 ## 1. Environment setup
 ### Creating Slandunk Analysis Environment 
@@ -33,12 +33,21 @@ slamdunk all -r slamdunk/test/data/ref.fa -b slamdunk/test/data/actb.bed -o slam
 ## 2. Preparing Reference files
 ### Downloading the Mouse Reference Genome 
 **NCBI**: GRCm39 (GCF_000001635.27_GRCm39_genomic.fna.gz)  
-[NCBI Download Link](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001635.27/)  
+[NCBI Download Link](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/635/GCF_000001635.27_GRCm39/)
+```
+wget -c https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/635/GCF_000001635.27_GRCm39/GCF_000001635.27_GRCm39_genomic.fna.gz
+```  
   
 **UCSC**: mm39 (mm39.fa.gz)  
-[UCSC Download Link](https://hgdownload.soe.ucsc.edu/goldenPath/mm39/bigZips/)  
+[UCSC Download Link](https://hgdownload.soe.ucsc.edu/goldenPath/mm39/bigZips/)
+```
+wget -c https://hgdownload.soe.ucsc.edu/goldenPath/mm39/bigZips/mm39.fa.gz
+```  
   
-**Ensembl**: GRCm39 (Mus_musculus.GRCm39.dna_sm.primary_assembly.fa.gz)    
+**Ensembl**: GRCm39 (Mus_musculus.GRCm39.dna.primary_assembly.fa.gz)    
 [Ensembl Download Link](https://ftp.ensembl.org/pub/release-112/fasta/mus_musculus/dna/)  
+```
+wget -c https://ftp.ensembl.org/pub/release-112/fasta/mus_musculus/dna/Mus_musculus.GRCm39.dna.primary_assembly.fa.gz
+```
 
 
