@@ -54,6 +54,12 @@ Mus_musculus.GRCm39.dna_sm.toplevel.fa.gz
 [Ensembl Download Link](https://ftp.ensembl.org/pub/release-112/fasta/mus_musculus/dna/)  
 ```
 wget -c https://ftp.ensembl.org/pub/release-112/fasta/mus_musculus/dna/Mus_musculus.GRCm39.dna.primary_assembly.fa.gz
+
 ```
 
+**Gencode**: GRCm39 (GRCm39.primary_assembly.genome.fa.gz)
+[Gencode Download Link](https://www.gencodegenes.org/mouse/)  
+```
+wget -c https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M36/GRCm39.primary_assembly.genome.fa.gz
+```
 
