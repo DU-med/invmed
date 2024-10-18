@@ -45,17 +45,17 @@ wget -c https://hgdownload.soe.ucsc.edu/goldenPath/mm39/bigZips/mm39.fa.gz
 ```  
   
 **3) Ensembl**: GRCm39 (Mus_musculus.GRCm39.dna.primary_assembly.fa.gz)     
+[Ensembl Download Link](https://ftp.ensembl.org/pub/release-112/fasta/mus_musculus/dna/)  
+```
+wget -c https://ftp.ensembl.org/pub/release-112/fasta/mus_musculus/dna/Mus_musculus.GRCm39.dna.primary_assembly.fa.gz
+
+```
 - DO NOT USE FILES BELOW  
 Mus_musculus.GRCm39.dna_rm.primary_assembly.fa.gz  
 Mus_musculus.GRCm39.dna_rm.toplevel.fa.gz  
 Mus_musculus.GRCm39.dna.toplevel.fa.gz  
 Mus_musculus.GRCm39.dna_sm.primary_assembly.fa.gz  
 Mus_musculus.GRCm39.dna_sm.toplevel.fa.gz  
-[Ensembl Download Link](https://ftp.ensembl.org/pub/release-112/fasta/mus_musculus/dna/)  
-```
-wget -c https://ftp.ensembl.org/pub/release-112/fasta/mus_musculus/dna/Mus_musculus.GRCm39.dna.primary_assembly.fa.gz
-
-```
 
 **4) Gencode**: GRCm39 (GRCm39.primary_assembly.genome.fa.gz)  
 [Gencode Download Link](https://www.gencodegenes.org/mouse/)  
